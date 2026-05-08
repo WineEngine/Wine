@@ -1,12 +1,15 @@
 PROGNAME=wine
 VERSION=0.1
 
-INCS=-Iinclude
+OSXINCS=-I/opt/homebrew/include
+OSXLIBS=-I/opt/homebrew/lib
+
+INCS=-Iinclude ${OSXINCS}
 
 CC=cc
 CPPFLAGS=-D_POSIX_C_SOURCE=200809L -DPROGNAME=\"${PROGNAME}\" -DGLFW_BUILD_WAYLAND=1
 CFLAGS=-Wall -pedantic -std=c99 ${CPPFLAGS} ${INCS}
-LDFLAGS=-lglfw -lGL -lm -ldl
+LDFLAGS=-lglfw -lGL -lm -ldl ${OSXLIBS}
 
 all: ${PROGNAME}
 
