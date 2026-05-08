@@ -3,20 +3,19 @@ VERSION=0.1
 
 OSXINCS=-I/opt/homebrew/include
 OSXLIBS=-L/opt/homebrew/lib \
-        -lGLEW \
         -lglfw \
         -framework OpenGL 
 
 INCS=-Iinclude ${OSXINCS}
 
-LIBS=
+LIBS=-lglfw -lGL -lm -ldl
 # OSX Uncomment
 # LIBS=${OSXLIBS}
 
 CC=cc
 CPPFLAGS=-D_POSIX_C_SOURCE=200809L -DPROGNAME=\"${PROGNAME}\" -DGLFW_BUILD_WAYLAND=1
 CFLAGS=-Wall -pedantic -std=c99 ${CPPFLAGS} ${INCS}
-LDFLAGS=-lglfw -lGL -lm -ldl ${LIBS}
+LDFLAGS=${LIBS}
 
 all: ${PROGNAME}
 
