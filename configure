@@ -9,7 +9,7 @@ EOF
 		;;
 	Darwin)
 		cat >config.mk <<EOF
-INCS=-I/opt/homebrew/include
+INCS=-Iinclude -I/opt/homebrew/include
 LIBS=-L/opt/homebrew/lib -lglfw -framework OpenGL 
 EOF
 		;;
