@@ -1,0 +1,20 @@
+#!/bin/sh
+
+case "$(uname -s)" in
+	Linux)
+		cat >config.mk <<EOF
+INCS=-Iinclude
+LIBS=-lglfw -lGL -lm -ldl
+EOF
+		;;
+	Darwin)
+		cat >config.mk <<EOF
+INCS=-I/opt/homebrew/include
+LIBS=-L/opt/homebrew/lib -lglfw -framework OpenGL 
+EOF
+		;;
+	*)
+		echo "unknown system"
+		exit 1
+		;;
+esac
