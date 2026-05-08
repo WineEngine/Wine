@@ -8,6 +8,11 @@ CPPFLAGS=-D_POSIX_C_SOURCE=200809L -DPROGNAME=\"${PROGNAME}\" -DGLFW_BUILD_WAYLA
 CFLAGS=-Wall -pedantic -std=c99 ${CPPFLAGS} ${INCS}
 LDFLAGS=-lglfw -lGL -lm -ldl
 
+all: ${PROGNAME}
+
+glad.o: glad.c
+	${CC} -c ${INCS} $<
+
 .c.o:
 	${CC} -c ${CFLAGS} $<	
 
